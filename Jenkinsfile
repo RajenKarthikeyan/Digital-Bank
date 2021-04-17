@@ -1,7 +1,7 @@
 pipeline{
     agent{label 'master'}
     environment {
-        imagename = "yaminianand/digitalbank"
+        imagename = "karthikeyan/digitalbank"
         registryCredential = 'DOCKERHUBCRED'
         dockerImage = ''
     }
@@ -12,7 +12,7 @@ pipeline{
     stages {
         stage('Checkout'){
             steps{
-                 git branch: 'main', url: 'https://github.com/yaminianand/Digital-Bank.git'
+                 git branch: 'main', url: 'https://github.com/RajenKarthikeyan/Digital-Bank.git'
             }
         }
 
@@ -45,7 +45,7 @@ pipeline{
                             dockerImage.push("$BUILD_NUMBER")
                             dockerImage.push('latest')
                       }
-		      sh "sudo docker run -d -p 8087:8080 yaminianand/digitalbank"
+		      sh "sudo docker run -d -p 8087:8080 karthikeyan/digitalbank"
                  }
              } 
 	}  

@@ -1,7 +1,7 @@
 pipeline{
     agent{label 'master'}
     environment {
-        imagename = "yaminianand/digitalbank"
+        imagename = "karthikeyan/digitalbank"
         registryCredential = 'DOCKERHUBCRED'
         dockerImage = ''
     }
@@ -12,7 +12,7 @@ pipeline{
     stages {
         stage('Checkout'){
             steps{
-                 git branch: 'main', url: 'https://github.com/yaminianand/Digital-Bank.git'
+                 git branch: 'main', url: 'https://github.com/RajenKarthikeyan/Digital-Bank.git'
             }
         }
 

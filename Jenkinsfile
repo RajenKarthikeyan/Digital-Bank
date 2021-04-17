@@ -16,13 +16,13 @@ pipeline{
         }
         stage('Test'){
             steps{
-                     sh 'mvn test'
+                     sh 'mvn clean test'
                      junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
         stage('Package'){
             steps{
-                sh 'mvn package'
+                sh 'mvn clean package'
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
         }

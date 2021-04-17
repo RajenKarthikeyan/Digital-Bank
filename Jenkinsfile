@@ -1,7 +1,7 @@
 pipeline{
     agent{label 'master'}
     environment {
-        imagename = "karthikeyan/digitalbank"
+        imagename = "rajenkarthikeyan/bankproject2"
         registryCredential = 'DOCKERHUBCRED'
         dockerImage = ''
     }

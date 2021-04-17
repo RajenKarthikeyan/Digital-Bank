@@ -3,7 +3,7 @@ pipeline{
     
     environment {
         imagename = "rajenkarthikeyan/bankproject2"
-        registryCredential = 'DOCKERHUBCRED'
+        registryCredential = 'RK'
         dockerImage = ''
 	}
     tools{

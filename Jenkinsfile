@@ -40,7 +40,7 @@ pipeline{
                             dockerImage.push("$BUILD_NUMBER")
                             dockerImage.push('latest')
                       }
-		      sh "sudo docker run -d -p 8087:8080 yaminianand/digitalbank"
+		      sh "sudo docker run -d -p 8087:8080 karthikeyan/digitalbank"
                  }
              } 
 	}  

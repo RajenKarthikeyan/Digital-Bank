@@ -1,5 +1,10 @@
 pipeline{
     agent{label 'master'}
+    environment {
+        imagename = "yaminianand/digitalbank"
+        registryCredential = 'DOCKERHUBCRED'
+        dockerImage = ''
+    }
     tools{
         maven 'M3'
     }

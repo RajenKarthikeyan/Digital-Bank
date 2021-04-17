@@ -2,7 +2,7 @@ pipeline{
     agent{label 'master'}
     
     environment {
-        imagename = "rajenkarthikeyan/bankproject2"
+        imagename = "rajenkarthikeyan/digitalbankproject_rk"
         registryCredential = 'KARTHIKEYAN'
         dockerImage = ''
 	}
@@ -41,8 +41,8 @@ pipeline{
                             dockerImage.push("$BUILD_NUMBER")
                             dockerImage.push('latest')
                       }
-		      	sh "sudo docker build . -t rajenkarthikeyan/bankproject2"
-			sh "sudo docker run -d -p 8091:8080 rajenkarthikeyan/bankproject2"
+		      	sh "sudo docker build . -t rajenkarthikeyan/digitalbankproject_rk"
+			sh "sudo docker run -d -p 8091:8080 rajenkarthikeyan/digitalbankproject_rk"
                  }
              } 
 	}  

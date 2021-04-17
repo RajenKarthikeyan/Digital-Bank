@@ -35,7 +35,7 @@ pipeline{
         stage('Deploy'){
 	    steps {
                  script{
- 		      input message: 'Do you want to proceed with Deployment? (Click "Proceed" to continue)'   
+ 		      input message: 'Kinldy click Proceed or Abort the Deployment'   
                       dockerImage = docker.build imagename
                       docker.withRegistry( '', registryCredential ) {
                             dockerImage.push("$BUILD_NUMBER")

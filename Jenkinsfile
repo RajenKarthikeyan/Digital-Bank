@@ -26,11 +26,19 @@ pipeline{
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
         }
-        stage('Reports'){
-            steps{
-                sh 'mvn verify'
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])     
-                }
-        }   
-    }
+        stage('Deploy'){
+	    steps {
+                 script{
+ 		      input message: 'Do you want to proceed with Deployment? (Click "Proceed" to continue)'   
+                      dockerImage = docker.build imagename
+                      docker.withRegistry( '', registryCredential ) {
+                            dockerImage.push("$BUILD_NUMBER")
+                            dockerImage.push('latest')
+                      }
+		      sh "sudo docker run -d -p 8087:8080 yaminianand/digitalbank"
+                 }
+             } 
+	}  
+   }
 }
+

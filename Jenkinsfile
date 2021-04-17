@@ -1,6 +1,10 @@
 pipeline{
     agent{label 'master'}
     
+    environment {
+        imagename = "rajenkarthikeyan/bankproject2"
+        registryCredential = 'DOCKERHUBCRED'
+        dockerImage = ''
     tools{
         maven 'M3'
     }
